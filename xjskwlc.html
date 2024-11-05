@@ -3992,9 +3992,15 @@
         var videoSrc = videoSourceElement.src;
         var downloadHref = downloadLinkElement.href;
 
+        console.log("初始视频链接:", videoSrc);
+        console.log("初始下载链接:", downloadHref);
+
         // 保留文件名部分（移除默认前缀）
         var fileNameVideo = videoSrc.replace(githubPrefix, ""); 
         var fileNameDownload = downloadHref.replace(githubPrefix, "");
+
+        console.log("提取的视频文件名:", fileNameVideo);
+        console.log("提取的下载文件名:", fileNameDownload);
 
         // 检查当前域名是否包含 "pages.dev"
         if (currentDomain.endsWith("pages.dev")) {
@@ -4004,7 +4010,14 @@
             // 修改显示的超链接前缀
             downloadLinkElement.href = pagesDevPrefix + fileNameDownload;
             downloadLinkElement.textContent = pagesDevPrefix + fileNameDownload;
+
+            console.log("更新后的视频链接:", videoSourceElement.src);
+            console.log("更新后的下载链接:", downloadLinkElement.href);
+        } else {
+            console.log("域名不包含 'pages.dev':", currentDomain);
         }
+    } else {
+        console.log("未找到 videoSourceElement 或 downloadLinkElement");
     }
 </script>
 										
