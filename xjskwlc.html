@@ -3974,18 +3974,20 @@
 										    </p>
 											
 										
-    <script>
-        // 获取当前域名
-        var currentDomain = window.location.hostname;
+<script>
+    // 获取当前域名
+    var currentDomain = window.location.hostname;
 
-        // 定义前缀
-        var githubPrefix = "https://xiaobeirepo.github.io/pan/";
-        var pagesDevPrefix = "https://pan-dxo.pages.dev/";
+    // 定义前缀
+    var githubPrefix = "https://xiaobeirepo.github.io/pan/";
+    var pagesDevPrefix = "https://pan-dxo.pages.dev/";
 
-        // 获取 video 标签中的 source 和下载链接的元素
-        var videoSourceElement = document.getElementById('videoSource');
-        var downloadLinkElement = document.getElementById('downloadLink');
+    // 获取 video 标签中的 source 和下载链接的元素
+    var videoSourceElement = document.getElementById('videoSource');
+    var downloadLinkElement = document.getElementById('downloadLink');
 
+    // 检查元素是否存在，以避免潜在的空引用错误
+    if (videoSourceElement && downloadLinkElement) {
         // 获取当前链接的文件名部分
         var videoSrc = videoSourceElement.src;
         var downloadHref = downloadLinkElement.href;
@@ -4003,7 +4005,8 @@
             downloadLinkElement.href = pagesDevPrefix + fileNameDownload;
             downloadLinkElement.textContent = pagesDevPrefix + fileNameDownload;
         }
-    </script>
+    }
+</script>
 										
 										
 										
