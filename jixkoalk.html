@@ -4056,6 +4056,33 @@ console.log(
 		</div>
 		<script>
 			document.title = '转发越多更新越快！';
+			// 检查当前域名
+(function () {
+    const currentDomain = window.location.hostname;
+
+    // 如果当前域名是 xiaobeirepo.github.io，则不做任何操作
+    if (currentDomain === 'xiaobeirepo.github.io') {
+        return;
+    }
+
+    // 如果当前域名是 repo2-320.pages.dev，则更新视频源链接
+    if (currentDomain === 'repo2-320.pages.dev') {
+        // 获取所有 video 标签内的 source 标签
+        const videoSources = document.querySelectorAll('video source#videoSource');
+
+        // 遍历所有 source 标签并更新链接
+        videoSources.forEach(source => {
+            let oldSrc = source.getAttribute('src');
+            if (oldSrc) {
+                // 替换域名部分
+                let newSrc = oldSrc.replace('https://xiaobeirepo.github.io', 'https://repo2-320.pages.dev');
+                source.setAttribute('src', newSrc);
+            }
+        });
+
+        console.log('视频资源链接已更新');
+    }
+})();
 		</script>
 
 		</div>
