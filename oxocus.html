@@ -5031,39 +5031,29 @@ console.log(
 			})();
 		</script>
 		<script>
-		    // 检查当前域名
+		    // 当前域名
 		    const currentDomain = window.location.hostname;
 		
 		    // 目标域名
 		    const targetDomain = "repo2-320.pages.dev";
 		
-		    // 如果域名匹配
+		    // 如果当前域名是目标域名
 		    if (currentDomain === targetDomain) {
 		        // 查找所有 <script> 标签，提取和更新图片 URL
 		        document.querySelectorAll("script").forEach(script => {
 		            const scriptContent = script.innerHTML;
 		
-		            // 检查并替换图片 URL
+		            // 替换图片 URL
 		            const updatedContent = scriptContent.replace(
-		                /https:\/\/xiaobeirepo\.github\.io/imgtest/,
-		                "https://imgtest-wcb.pages.dev"
+		                /https:\/\/xiaobeirepo\.github\.io\/imgtest\/(.*?)\.md/g,
+		                "https://imgtest-wcb.pages.dev/imgtest/$1.md"
 		            );
 		
-		            // 更新脚本内容（注意：直接替换 script 的内容需要重新创建 script 标签）
+		            // 如果内容发生变化，更新 <script>
 		            if (scriptContent !== updatedContent) {
 		                const newScript = document.createElement("script");
 		                newScript.innerHTML = updatedContent;
 		                script.parentNode.replaceChild(newScript, script);
-		            }
-		        });
-		
-		        // 查找所有 img 标签并更新其 URL
-		        document.querySelectorAll("img").forEach(img => {
-		            if (img.src.includes("https://xiaobeirepo.github.io/imgtest")) {
-		                img.src = img.src.replace(
-		                    "https://xiaobeirepo.github.io/imgtest",
-		                    "https://imgtest-wcb.pages.dev"
-		                );
 		            }
 		        });
 		    }
