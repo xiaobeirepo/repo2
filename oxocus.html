@@ -5030,34 +5030,34 @@ console.log(
 			
 			})();
 		</script>
-		<script>
-		    // 当前域名
-		    const currentDomain = window.location.hostname;
-		
-		    // 目标域名
-		    const targetDomain = "repo2-320.pages.dev";
-		
-		    // 如果当前域名是目标域名
-		    if (currentDomain === targetDomain) {
-		        // 查找所有 <script> 标签，提取和更新图片 URL
-		        document.querySelectorAll("script").forEach(script => {
-		            const scriptContent = script.innerHTML;
-		
-		            // 替换图片 URL
-		            const updatedContent = scriptContent.replace(
-		                /https:\/\/xiaobeirepo\.github\.io\/imgtest\/(.*?)\.md/g,
-		                "https://imgtest-wcb.pages.dev/imgtest/$1.md"
-		            );
-		
-		            // 如果内容发生变化，更新 <script>
-		            if (scriptContent !== updatedContent) {
-		                const newScript = document.createElement("script");
-		                newScript.innerHTML = updatedContent;
-		                script.parentNode.replaceChild(newScript, script);
-		            }
-		        });
-		    }
-		</script>
+<script>
+    // 当前域名
+    const currentDomain = window.location.hostname;
+
+    // 目标域名
+    const targetDomain = "repo2-320.pages.dev";
+
+    // 如果当前域名是目标域名
+    if (currentDomain === targetDomain) {
+        // 查找所有 <script> 标签，提取和更新图片 URL
+        document.querySelectorAll("script").forEach(script => {
+            const scriptContent = script.innerHTML;
+
+            // 替换图片 URL，去掉多余的 /imgtest/
+            const updatedContent = scriptContent.replace(
+                /https:\/\/xiaobeirepo\.github\.io\/imgtest\/(.*?)\.md/g,
+                "https://imgtest-wcb.pages.dev/$1.md"
+            );
+
+            // 如果内容发生变化，更新 <script>
+            if (scriptContent !== updatedContent) {
+                const newScript = document.createElement("script");
+                newScript.innerHTML = updatedContent;
+                script.parentNode.replaceChild(newScript, script);
+            }
+        });
+    }
+</script>
 
 		</div>
 	</body>
