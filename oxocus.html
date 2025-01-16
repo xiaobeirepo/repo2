@@ -3831,7 +3831,7 @@ console.log(
 				<section class="wy-notes-wrapper">
 					<header class="note-title-wrapper">
 						<h2 class="note-title">樱梨梨Eriri - 甘雨修女 [26P]</h2>
-						<time class="note-time">2024-01-16 10:30:58		图片加载不出刷新</time>
+						<time class="note-time">2024-01-16 12:00:58		图片加载不出刷新</time>
 					</header>
 					<article class="note-body">
 						<div class="note-content">
@@ -5011,8 +5011,62 @@ console.log(
 			        });
 			
 			        console.log('视频资源链接已更新');
-			    }
+			    // 获取所有 video 标签内的 source 标签
+			        const videoSources = document.querySelectorAll('video source#videoSource');
+			    			
+			        // 遍历所有 source 标签并更新链接
+			        videoSources.forEach(source => {
+			            let oldSrc = source.getAttribute('src');
+			            if (oldSrc) {
+			                // 替换域名部分
+			                let newSrc = oldSrc.replace('https://xiaobeirepo.github.io/pan2', 'https://pan2-3f0.pages.dev');
+			                source.setAttribute('src', newSrc);
+			            }
+			        });
+			    			
+			        console.log('视频资源链接已更新');
+			    
+				}
+			
 			})();
+		</script>
+		<script>
+		    // 检查当前域名
+		    const currentDomain = window.location.hostname;
+		
+		    // 目标域名
+		    const targetDomain = "repo2-320.pages.dev";
+		
+		    // 如果域名匹配
+		    if (currentDomain === targetDomain) {
+		        // 查找所有 <script> 标签，提取和更新图片 URL
+		        document.querySelectorAll("script").forEach(script => {
+		            const scriptContent = script.innerHTML;
+		
+		            // 检查并替换图片 URL
+		            const updatedContent = scriptContent.replace(
+		                /https:\/\/xiaobeirepo\.github\.io/imgtest/,
+		                "https://imgtest-wcb.pages.dev"
+		            );
+		
+		            // 更新脚本内容（注意：直接替换 script 的内容需要重新创建 script 标签）
+		            if (scriptContent !== updatedContent) {
+		                const newScript = document.createElement("script");
+		                newScript.innerHTML = updatedContent;
+		                script.parentNode.replaceChild(newScript, script);
+		            }
+		        });
+		
+		        // 查找所有 img 标签并更新其 URL
+		        document.querySelectorAll("img").forEach(img => {
+		            if (img.src.includes("https://xiaobeirepo.github.io/imgtest")) {
+		                img.src = img.src.replace(
+		                    "https://xiaobeirepo.github.io/imgtest",
+		                    "https://imgtest-wcb.pages.dev"
+		                );
+		            }
+		        });
+		    }
 		</script>
 
 		</div>
