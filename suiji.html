@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寒假随机色图</title>
+		<script>
+			// 定义 HTML 文件链接数组（默认地址）
+			let htmlFiles = ['https://xiaobeirepo.github.io/repo2/ociskldo.html',
+				'https://xiaobeirepo.github.io/repo2/ockmsfk.html', 'https://xiaobeirepo.github.io/repo2/ockmsfk.html',
+				'https://xiaobeirepo.github.io/repo2/ocmskf.html', 'https://xiaobeirepo.github.io/repo2/ocmskf.html',
+				'https://xiaobeirepo.github.io/repo2/wowidjf.html', 'https://xiaobeirepo.github.io/repo2/ixoapdk.html',
+				'https://xiaobeirepo.github.io/repo2/opsklwo.html', 'https://xiaobeirepo.github.io/repo2/oskdlcm.html',
+				'https://xiaobeirepo.github.io/repo2/xmsnfkx.html', 'https://xiaobeirepo.github.io/repo2/pcoskld.html',
+				'https://xiaobeirepo.github.io/repo2/xjskai.html', 'https://xiaobeirepo.github.io/repo2/ox7kslc.html',
+				'https://xiaobeirepo.github.io/repo2/uu8q9.html', 'https://xiaobeirepo.github.io/repo2/oxmsla.html',
+				'https://xiaobeirepo.github.io/repo2/lskmdnc.html', 'https://xiaobeirepo.github.io/repo2/xmkwlso.html',
+				'https://xiaobeirepo.github.io/repo2/xmkwlso.html', 'https://xiaobeirepo.github.io/repo2/xncmskh.html',
+				'https://xiaobeirepo.github.io/repo2/xncmskh.html', 'https://xiaobeirepo.github.io/repo2/ockslwd.html',
+				'https://xiaobeirepo.github.io/repo2/oxocus.html', 'https://xiaobeirepo.github.io/repo2/oxocus.html',
+				'https://xiaobeirepo.github.io/repo2/oxocus.html', 'https://xiaobeirepo.github.io/repo2/oxocus.html',
+				'https://xiaobeirepo.github.io/repo2/koclspvn.html', 'https://xiaobeirepo.github.io/repo2/08dns.html',
+				'https://xiaobeirepo.github.io/repo2/xospcf.html', 'https://xiaobeirepo.github.io/repo2/ocksmd.html',
+				'https://xiaobeirepo.github.io/repo2/hkemlw.html', 'https://xiaobeirepo.github.io/repo2/ocisjwla.html',
+				'https://xiaobeirepo.github.io/repo2/oclsmsc.html', 'https://xiaobeirepo.github.io/repo2/oxmslxk.html',
+				'https://xiaobeirepo.github.io/repo2/oxmslxk.html', 'https://xiaobeirepo.github.io/repo2/scjxmsk.html',
+				'https://xiaobeirepo.github.io/repo2/oxmskd.html', 'https://xiaobeirepo.github.io/repo2/ockslxc.html',
+				'https://xiaobeirepo.github.io/repo2/oxkskl.html', 'https://xiaobeirepo.github.io/repo2/pakslci.html',
+				'https://xiaobeirepo.github.io/repo2/pclsdio.html', 'https://xiaobeirepo.github.io/repo2/msldokf.html',
+				'https://xiaobeirepo.github.io/repo2/msldokf.html', 'https://xiaobeirepo.github.io/repo2/oxksmc.html',
+				'https://xiaobeirepo.github.io/repo2/ocjskld.html', 'https://xiaobeirepo.github.io/repo2/pxlsaxk.html',
+				'https://xiaobeirepo.github.io/repo2/oxjskcs.html', 'https://xiaobeirepo.github.io/repo2/ocslfk.html',
+				'https://xiaobeirepo.github.io/repo2/ldhaj.html', 'https://xiaobeirepo.github.io/repo2/ldhaj.html',
+				'https://xiaobeirepo.github.io/repo2/oxslckv.html', 'https://xiaobeirepo.github.io/repo2/pxosmw.html',
+				'https://xiaobeirepo.github.io/repo2/oxkslc.html', 'https://xiaobeirepo.github.io/repo2/oxjskla.html',
+				'https://xiaobeirepo.github.io/repo2/odiswsj.html', 'https://xiaobeirepo.github.io/repo2/imgtest.html',
+				'https://xiaobeirepo.github.io/repo2/pwpeov.html', 'https://xiaobeirepo.github.io/repo2/pwpeov.html',
+				'https://xiaobeirepo.github.io/repo2/ockslwc.html', 'https://xiaobeirepo.github.io/repo2/ockslwc.html',
+				'https://xiaobeirepo.github.io/repo2/oxkslcj.html', 'https://xiaobeirepo.github.io/repo2/ociskw.html',
+				'https://xiaobeirepo.github.io/repo2/ociskw.html', 'https://xiaobeirepo.github.io/repo2/oslowpc.html',
+				'https://xiaobeirepo.github.io/repo2/ocksldp.html', 'https://xiaobeirepo.github.io/repo2/oxksls.html',
+				'https://xiaobeirepo.github.io/repo2/oxkcov.html', 'https://xiaobeirepo.github.io/repo2/coskld.html',
+				'https://xiaobeirepo.github.io/repo2/uisonxk.html', 'https://xiaobeirepo.github.io/repo2/oskldc.html',
+				'https://xiaobeirepo.github.io/repo2/oxklas.html', 'https://xiaobeirepo.github.io/repo2/koclso.html',
+				'https://xiaobeirepo.github.io/repo2/okxjsk.html', 'https://xiaobeirepo.github.io/repo2/oksldox.html',
+				'https://xiaobeirepo.github.io/repo2/xksldls.html', 'https://xiaobeirepo.github.io/repo2/xksldls.html',
+				'https://xiaobeirepo.github.io/repo2/xksokwl.html', 'https://xiaobeirepo.github.io/repo2/slwkoid.html',
+				'https://xiaobeirepo.github.io/repo2/oxjkslc.html', 'https://xiaobeirepo.github.io/repo2/xjdklw.html',
+				'https://xiaobeirepo.github.io/repo2/jkdlep.html', 'https://xiaobeirepo.github.io/repo2/koclsop.html',
+				'https://xiaobeirepo.github.io/repo2/ok3joslc.html', 'https://xiaobeirepo.github.io/repo2/xkolsj.html',
+				'https://xiaobeirepo.github.io/repo2/kosjidc.html', 'https://xiaobeirepo.github.io/repo2/koxlspc.html',
+				'https://xiaobeirepo.github.io/repo2/lpdkow.html', 'https://xiaobeirepo.github.io/repo2/sncmkf.html',
+				'https://xiaobeirepo.github.io/repo2/xlskcjs.html', 'https://xiaobeirepo.github.io/repo2/xxkoxlps.html',
+				'https://xiaobeirepo.github.io/repo2/skxlow.html', 'https://xiaobeirepo.github.io/repo2/xksncm.html',
+				'https://xiaobeirepo.github.io/repo2/ojsmndk.html', 'https://xiaobeirepo.github.io/repo2/oxksold.html',
+				'https://xiaobeirepo.github.io/repo2/xkslwk.html', 'https://xiaobeirepo.github.io/repo2/kodjh.html',
+				'https://xiaobeirepo.github.io/repo2/kodjwn.html', 'https://xiaobeirepo.github.io/repo2/csdkfl.html',
+				'https://xiaobeirepo.github.io/repo2/cospfj.html', 'https://xiaobeirepo.github.io/repo2/joxlps.html',
+				'https://xiaobeirepo.github.io/repo2/oskld.html', 'https://xiaobeirepo.github.io/repo2/koxssj.html',
+				'https://xiaobeirepo.github.io/repo2/cksldl.html', 'https://xiaobeirepo.github.io/repo2/odosla.html',
+				'https://xiaobeirepo.github.io/repo2/clskcd.html', 'https://xiaobeirepo.github.io/repo2/ksjicoclps.html',
+				'https://xiaobeirepo.github.io/repo2/ckslwpd.html', 'https://xiaobeirepo.github.io/repo2/oxkals.html',
+				'https://xiaobeirepo.github.io/repo2/ocksld.html', 'https://xiaobeirepo.github.io/repo2/ocksld.html',
+				'https://xiaobeirepo.github.io/repo2/nsmdk.html', 'https://xiaobeirepo.github.io/repo2/xkslwp.html',
+				'https://xiaobeirepo.github.io/repo2/xkcmsw.html', 'https://xiaobeirepo.github.io/repo2/xkslwos.html',
+				'https://xiaobeirepo.github.io/repo2/mvnjwk.html', 'https://xiaobeirepo.github.io/repo2/sjwkoqi.html',
+				'https://xiaobeirepo.github.io/repo2/okdjslw.html', 'https://xiaobeirepo.github.io/repo2/okdksl.html',
+				'https://xiaobeirepo.github.io/repo2/msdkl.html', 'https://xiaobeirepo.github.io/repo2/cksmxa.html',
+				'https://xiaobeirepo.github.io/repo2/koxalps.html', 'https://xiaobeirepo.github.io/repo2/lpxmsk.html',
+				'https://xiaobeirepo.github.io/repo2/cnsmkw.html', 'https://xiaobeirepo.github.io/repo2/ckoxlsw.html',
+				'https://xiaobeirepo.github.io/repo2/lsfncjs.html', 'https://xiaobeirepo.github.io/repo2/ockwlq.html',
+				'https://xiaobeirepo.github.io/repo2/okcxspl.html', 'https://xiaobeirepo.github.io/repo2/okcxspl.html',
+				'https://xiaobeirepo.github.io/repo2/lwpsch.html', 
+				'https://xiaobeirepo.github.io/repo2/oxslw.html', 'https://xiaobeirepo.github.io/repo2/okskoc.html',
+				'https://xiaobeirepo.github.io/repo2/ijw8sc.html', 'https://xiaobeirepo.github.io/repo2/w9sic.html',
+				'https://xiaobeirepo.github.io/repo2/okoako.html', 'https://xiaobeirepo.github.io/repo2/koxamz.html',
+				'https://xiaobeirepo.github.io/repo2/koaijsx.html', 'https://xiaobeirepo.github.io/repo2/kosjics.html',
+				'https://xiaobeirepo.github.io/repo2/kosxjc.html', 'https://xiaobeirepo.github.io/repo2/coksko.html',
+				'https://xiaobeirepo.github.io/repo2/koxlpsc.html', 'https://xiaobeirepo.github.io/repo2/okxsp.html',
+				'https://xiaobeirepo.github.io/repo2/ijdkows.html', 'https://xiaobeirepo.github.io/repo2/skoskc.html',
+				'https://xiaobeirepo.github.io/repo2/skoskc.html', 'https://xiaobeirepo.github.io/repo2/kocoks.html',
+				'https://xiaobeirepo.github.io/repo2/ijdijws.html', 'https://xiaobeirepo.github.io/repo2/ckoscj.html',
+				'https://xiaobeirepo.github.io/repo2/jickosc.html', 'https://xiaobeirepo.github.io/repo2/koxkosc.html',
+				'https://xiaobeirepo.github.io/repo2/wisox.html', 'https://xiaobeirepo.github.io/repo2/sjixkw.html',
+				'https://xiaobeirepo.github.io/repo2/nxmwnb.html', 'https://xiaobeirepo.github.io/repo2/ucisoc.html',
+				'https://xiaobeirepo.github.io/repo2/koxsjis.html', 'https://xiaobeirepo.github.io/repo2/koslwoas.html',
+				'https://xiaobeirepo.github.io/repo2/jickosaa.html', 'https://xiaobeirepo.github.io/repo2/jixkos.html',
+				'https://xiaobeirepo.github.io/repo2/oskdls.html', 'https://xiaobeirepo.github.io/repo2/jixkoos.html',
+				'https://xiaobeirepo.github.io/repo2/jixkoos.html', 'https://xiaobeirepo.github.io/repo2/kocskd.html',
+				'https://xiaobeirepo.github.io/repo2/kodjiwx.html', 'https://xiaobeirepo.github.io/repo2/lxokso.html',
+				'https://xiaobeirepo.github.io/repo2/kocsls.html', 'https://xiaobeirepo.github.io/repo2/kxoaks.html',
+				'https://xiaobeirepo.github.io/repo2/okslao.html', 
+				
+				'https://xiaobeirepo.github.io/repo2/xkoslc.html', 'https://xiaobeirepo.github.io/repo2/koxals.html',
+				'https://xiaobeirepo.github.io/repo2/namskd.html', 'https://xiaobeirepo.github.io/repo2/ckosjwk.html',
+				'https://xiaobeirepo.github.io/repo2/okslqjd.html', 'https://xiaobeirepo.github.io/repo2/kodlsow.html',
+				'https://xiaobeirepo.github.io/repo2/koslpsjiqa.html', 'https://xiaobeirepo.github.io/repo2/koxkos.html',
+				'https://xiaobeirepo.github.io/repo2/nxmcks.html', 'https://xiaobeirepo.github.io/repo2/okxalp.html',
+				'https://xiaobeirepo.github.io/repo2/koclsok.html', 'https://xiaobeirepo.github.io/repo2/oxoks.html',
+				'https://xiaobeirepo.github.io/repo2/xjcscfd.html', 'https://xiaobeirepo.github.io/repo2/koslplc.html',
+				'https://xiaobeirepo.github.io/repo2/koxcjsv.html', 'https://xiaobeirepo.github.io/repo2/ijxokxs.html',
+				'https://xiaobeirepo.github.io/repo2/ocijsf.html', 'https://xiaobeirepo.github.io/repo2/jixkscoa.html',
+				'https://xiaobeirepo.github.io/repo2/koxoks.html', 'https://xiaobeirepo.github.io/repo2/oqwpdj.html',
+				'https://xiaobeirepo.github.io/repo2/okxsko.html', 'https://xiaobeirepo.github.io/repo2/koxsla.html',
+				'https://xiaobeirepo.github.io/repo2/koxsla.html', 'https://xiaobeirepo.github.io/repo2/kokcosk.html',
+
+				'https://xiaobeirepo.github.io/repo2/cmsjwk.html', 'https://xiaobeirepo.github.io/repo2/kocslwo.html',
+				'https://xiaobeirepo.github.io/repo2/kowlsk.html', 'https://xiaobeirepo.github.io/repo2/koslwi.html',
+				'https://xiaobeirepo.github.io/repo2/koxijsc.html', 'https://xiaobeirepo.github.io/repo2/vjicksi.html',
+				'https://xiaobeirepo.github.io/repo2/kocslds.html', 'https://xiaobeirepo.github.io/repo2/jixkoa.html',
+				'https://xiaobeirepo.github.io/repo2/sldkown.html', 'https://xiaobeirepo.github.io/repo2/cmskwc.html',
+				'https://xiaobeirepo.github.io/repo2/cmskwc.html', 'https://xiaobeirepo.github.io/repo2/skoxiuw.html',
+				'https://xiaobeirepo.github.io/repo2/xnsmwd.html', 'https://xiaobeirepo.github.io/repo2/okskod.html',
+				'https://xiaobeirepo.github.io/repo2/lfkowx.html', 'https://xiaobeirepo.github.io/repo2/sjnfhuw.html',
+				'https://xiaobeirepo.github.io/repo2/sjdhfbw.html', 'https://xiaobeirepo.github.io/repo2/oxslcm.html',
+				'https://xiaobeirepo.github.io/repo2/skclow.html', 'https://xiaobeirepo.github.io/repo2/skclow.html',
+				'https://xiaobeirepo.github.io/repo2/kcosloc.html', 'https://xiaobeirepo.github.io/repo2/skolpd.html',
+				'https://xiaobeirepo.github.io/repo2/koslpa.html', 'https://xiaobeirepo.github.io/repo2/kocijsi.html',
+				'https://xiaobeirepo.github.io/repo2/jixkoalk.html', 'https://xiaobeirepo.github.io/repo2/jixkoalk.html',
+				'https://xiaobeirepo.github.io/repo2/kocijsi.html', 'https://xiaobeirepo.github.io/repo2/jixkoalk.html',
+				'https://xiaobeirepo.github.io/repo2/slkoakc.html', 'https://xiaobeirepo.github.io/repo2/slkoakc.html',
+				'https://xiaobeirepo.github.io/repo2/mnskws.html', 'https://xiaobeirepo.github.io/repo2/xisops.html',
+				'https://xiaobeirepo.github.io/repo2/ckosld.html', 'https://xiaobeirepo.github.io/repo2/ckslwos.html',
+				'https://xiaobeirepo.github.io/repo2/opdjk.html', 'https://xiaobeirepo.github.io/repo2/opdjk.html',
+				'https://xiaobeirepo.github.io/repo2/opdjk.html', 'https://xiaobeirepo.github.io/repo2/socisd.html',
+				'https://xiaobeirepo.github.io/repo2/cjskwmc.html', 'https://xiaobeirepo.github.io/repo2/koksnc.html',
+				'https://xiaobeirepo.github.io/repo2/ockslw.html', 'https://xiaobeirepo.github.io/repo2/xmwsk.html',
+				'https://xiaobeirepo.github.io/repo2/slpwoq.html', 'https://xiaobeirepo.github.io/repo2/skwlco.html',
+				'https://xiaobeirepo.github.io/repo2/cjskwmc.html', 'https://xiaobeirepo.github.io/repo2/cksjws.html',
+				'https://xiaobeirepo.github.io/repo2/spwosc.html', 'https://xiaobeirepo.github.io/repo2/okoslc.html',
+				'https://xiaobeirepo.github.io/repo2/ckslwpa.html', 'https://xiaobeirepo.github.io/repo2/jixskow.html',
+				'https://xiaobeirepo.github.io/repo2/nmwjsk.html', 'https://xiaobeirepo.github.io/repo2/sowlqp.html',
+				'https://xiaobeirepo.github.io/repo2/skwlao.html', 'https://xiaobeirepo.github.io/repo2/skwlao.html',
+				'https://xiaobeirepo.github.io/repo2/mncbhs.html', 'https://xiaobeirepo.github.io/repo2/opwjskc.html',
+				'https://xiaobeirepo.github.io/repo2/skclfo.html', 'https://xiaobeirepo.github.io/repo2/dkwlso.html',
+				'https://xiaobeirepo.github.io/repo2/skwlps.html', 'https://xiaobeirepo.github.io/repo2/xmswl.html',
+				'https://xiaobeirepo.github.io/repo2/wkoslx.html', 'https://xiaobeirepo.github.io/repo2/lmkko.html',
+				'https://xiaobeirepo.github.io/repo2/ckosjw.html', 'https://xiaobeirepo.github.io/repo2/okslwm.html',
+				'https://xiaobeirepo.github.io/repo2/kxocks.html', 'https://xiaobeirepo.github.io/repo2/hwisoc.html',
+				'https://xiaobeirepo.github.io/repo2/dkskclsw.html', 'https://xiaobeirepo.github.io/repo2/okslwk.html',
+				'https://xiaobeirepo.github.io/repo2/okslwk.html', 'https://xiaobeirepo.github.io/repo2/koclsw.html',
+				'https://xiaobeirepo.github.io/repo2/kosnam.html', 'https://xiaobeirepo.github.io/repo2/ksucis.html',
+				'https://xiaobeirepo.github.io/repo2/ksucis.html', 'https://xiaobeirepo.github.io/repo2/cjsmw.html',
+				'https://xiaobeirepo.github.io/repo2/iskwjs.html', 'https://xiaobeirepo.github.io/repo2/iskwjs.html',
+				'https://xiaobeirepo.github.io/repo2/odlosj.html', 'https://xiaobeirepo.github.io/repo2/shwjsk.html',
+				'https://xiaobeirepo.github.io/repo2/ijkoslpa.html', 'https://xiaobeirepo.github.io/repo2/dmcnjhw.html',
+				'https://xiaobeirepo.github.io/repo2/iusowks.html', 'https://xiaobeirepo.github.io/repo2/askwox.html',
+				'https://xiaobeirepo.github.io/repo2/olwksix.html', 'https://xiaobeirepo.github.io/repo2/skwlso.html',
+				'https://xiaobeirepo.github.io/repo2/owjdkhf.html', 'https://xiaobeirepo.github.io/repo2/sowlqk.html',
+				'https://xiaobeirepo.github.io/repo2/ksoldp.html', 'https://xiaobeirepo.github.io/repo2/skqwkdo.html',
+				'https://xiaobeirepo.github.io/repo2/kokodms.html', 'https://xiaobeirepo.github.io/repo2/kokodms.html',
+				'https://xiaobeirepo.github.io/repo2/dlsoapc.html', 'https://xiaobeirepo.github.io/repo2/cjsows.html',
+				'https://xiaobeirepo.github.io/repo2/mdjsiw.html', 'https://xiaobeirepo.github.io/repo2/socisw.html'
+			];
+
+			// 动态替换链接地址
+			function replaceLinksIfNeeded() {
+				const currentDomain = window.location.hostname;
+				if (currentDomain === "repo2-320.pages.dev") {
+					htmlFiles = htmlFiles.map(link =>
+						link.replace("https://xiaobeirepo.github.io/repo2/", "https://repo2-320.pages.dev/")
+					);
+				}
+			}
+
+			// 随机加载 HTML 文件内容
+			async function loadRandomPage() {
+				if (htmlFiles.length === 0) {
+					// 如果数组为空，显示错误消息
+					document.getElementById("content").innerHTML = `
+          <p>All files failed to load. Please try again later.</p>`;
+					return;
+				}
+
+				// 随机选择文件
+				const randomIndex = Math.floor(Math.random() * htmlFiles.length);
+				const randomFile = htmlFiles[randomIndex];
+				console.log(`Trying to load ${randomFile}`);
+
+				try {
+					// 请求文件内容
+					const response = await fetch(randomFile);
+
+					if (response.ok) {
+						// 加载成功，显示内容
+						const content = await response.text();
+						document.getElementById("content").innerHTML = content;
+					} else {
+						// 如果返回 404，将文件从数组中移除并重新尝试
+						console.warn(`File ${randomFile} returned status: ${response.status}`);
+						htmlFiles.splice(randomIndex, 1); // 从数组中移除
+						loadRandomPage(); // 重新尝试加载
+					}
+				} catch (error) {
+					// 捕获其他错误，将文件从数组中移除并重新尝试
+					console.error(`Error loading file ${randomFile}: ${error.message}`);
+					htmlFiles.splice(randomIndex, 1); // 从数组中移除
+					loadRandomPage(); // 重新尝试加载
+				}
+			}
+
+			// 在页面加载时调用函数
+			window.onload = () => {
+				replaceLinksIfNeeded(); // 检测并替换链接地址
+				loadRandomPage(); // 加载随机页面
+			};
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<h1>正在为你寻找色图...请稍后...</h1>
+			<br/>
+			<a id="xunlei" href="https://xn--djr07sn3v.com">查看所有</a>
+		</div>
+	</body>
+</html>
