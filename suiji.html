@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>寒假随机色图</title>
-		<script>
-			// 定义 HTML 文件链接数组（默认地址）
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>寒假随机色图</title>
+	<style>
+		/* 悬浮按钮样式 */
+		#favoriteButton {
+			position: fixed;
+			bottom: 80px; /* 调整按钮位置 */
+			right: 20px;
+			width: 50px;
+			height: 50px;
+			background-color: #f39c12;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			display: none; /* 初始隐藏，加载完成后显示 */
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			cursor: pointer;
+			text-align: center;
+		}
+
+		#favoriteButton img {
+			width: 24px;
+			height: 24px;
+		}
+
+		/* 弹出窗口样式 */
+		#favoriteModal {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%; /* 增大窗口宽度 */
+			max-width: 500px; /* 设置最大宽度 */
+			background-color: white;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			padding: 30px;
+			border-radius: 15px; /* 圆角增加 */
+			text-align: center;
+			z-index: 1000;
+		}
+
+		#favoriteModal textarea {
+			width: 100%;
+			height: 70px; /* 增大文本框高度 */
+			margin: 10px 0;
+			padding: 10px;
+			resize: none;
+			font-size: 14px;
+			line-height: 1.5;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		#favoriteModal button {
+			margin-top: 10px;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			color: white;
+			background-color: #007bff; /* 蓝色背景 */
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		}
+
+		#favoriteModal button:hover {
+			background-color: #0056b3; /* 深蓝色悬停效果 */
+		}
+
+		/* 模态背景 */
+		#modalBackground {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 999;
+		}
+	</style>
+	<script>
+		// 定义 HTML 文件链接数组（默认地址）
+
 			let htmlFiles = ['https://xiaobeirepo.github.io/repo2/ociskldo.html',
 					 'https://xiaobeirepo.github.io/repo2/oxkslw.html',
 					 'https://xiaobeirepo.github.io/repo2/oxpado.html',
@@ -157,64 +240,112 @@
 				'https://xiaobeirepo.github.io/repo2/mdjsiw.html', 'https://xiaobeirepo.github.io/repo2/socisw.html'
 			];
 
-			// 动态替换链接地址
-			function replaceLinksIfNeeded() {
-				const currentDomain = window.location.hostname;
-				if (currentDomain === "repo2-320.pages.dev") {
-					htmlFiles = htmlFiles.map(link =>
-						link.replace("https://xiaobeirepo.github.io/repo2/", "https://repo2-320.pages.dev/")
-					);
-				}
+		let currentLoadedPage = ''; // 当前加载的页面链接
+
+		// 动态替换链接地址
+		function replaceLinksIfNeeded() {
+			const currentDomain = window.location.hostname;
+			if (currentDomain === "repo2-320.pages.dev") {
+				htmlFiles = htmlFiles.map(link =>
+					link.replace("https://xiaobeirepo.github.io/repo2/", "https://repo2-320.pages.dev/")
+				);
+			}
+		}
+
+		// 随机加载 HTML 文件内容
+		async function loadRandomPage() {
+			if (htmlFiles.length === 0) {
+				// 如果数组为空，显示错误消息
+				document.getElementById("content").innerHTML = `
+          <p>All files failed to load. Please try again later.</p>`;
+				return;
 			}
 
-			// 随机加载 HTML 文件内容
-			async function loadRandomPage() {
-				if (htmlFiles.length === 0) {
-					// 如果数组为空，显示错误消息
-					document.getElementById("content").innerHTML = `
-          <p>All files failed to load. Please try again later.</p>`;
-					return;
-				}
+			// 随机选择文件
+			const randomIndex = Math.floor(Math.random() * htmlFiles.length);
+			const randomFile = htmlFiles[randomIndex];
+			currentLoadedPage = randomFile; // 保存当前加载的页面链接
+			console.log(`Trying to load ${randomFile}`);
 
-				// 随机选择文件
-				const randomIndex = Math.floor(Math.random() * htmlFiles.length);
-				const randomFile = htmlFiles[randomIndex];
-				console.log(`Trying to load ${randomFile}`);
+			try {
+				// 请求文件内容
+				const response = await fetch(randomFile);
 
-				try {
-					// 请求文件内容
-					const response = await fetch(randomFile);
+				if (response.ok) {
+					// 加载成功，显示内容
+					const content = await response.text();
+					document.getElementById("content").innerHTML = content;
 
-					if (response.ok) {
-						// 加载成功，显示内容
-						const content = await response.text();
-						document.getElementById("content").innerHTML = content;
-					} else {
-						// 如果返回 404，将文件从数组中移除并重新尝试
-						console.warn(`File ${randomFile} returned status: ${response.status}`);
-						htmlFiles.splice(randomIndex, 1); // 从数组中移除
-						loadRandomPage(); // 重新尝试加载
-					}
-				} catch (error) {
-					// 捕获其他错误，将文件从数组中移除并重新尝试
-					console.error(`Error loading file ${randomFile}: ${error.message}`);
+					// 显示收藏按钮
+					document.getElementById("favoriteButton").style.display = 'flex';
+				} else {
+					// 如果返回 404，将文件从数组中移除并重新尝试
+					console.warn(`File ${randomFile} returned status: ${response.status}`);
 					htmlFiles.splice(randomIndex, 1); // 从数组中移除
 					loadRandomPage(); // 重新尝试加载
 				}
+			} catch (error) {
+				// 捕获其他错误，将文件从数组中移除并重新尝试
+				console.error(`Error loading file ${randomFile}: ${error.message}`);
+				htmlFiles.splice(randomIndex, 1); // 从数组中移除
+				loadRandomPage(); // 重新尝试加载
 			}
+		}
 
-			// 在页面加载时调用函数
-			window.onload = () => {
-				replaceLinksIfNeeded(); // 检测并替换链接地址
-				loadRandomPage(); // 加载随机页面
-			};
-		</script>
-	</head>
-	<body>
-		<div id="content">
-			<h1>正在为你寻找色图...请稍后...</h1>
-			<br/>
-			<a id="xunlei" href="https://xn--djr07sn3v.com">点我查看所有</a>
-		</div>
-	</body>
+		// 显示收藏弹窗
+		function showFavoriteModal() {
+			const modal = document.getElementById('favoriteModal');
+			const background = document.getElementById('modalBackground');
+			const textarea = document.getElementById('pageLink');
+			textarea.value = currentLoadedPage; // 设置当前加载的页面链接
+			modal.style.display = 'block';
+			background.style.display = 'block';
+		}
+
+		// 隐藏收藏弹窗
+		function hideFavoriteModal() {
+			const modal = document.getElementById('favoriteModal');
+			const background = document.getElementById('modalBackground');
+			modal.style.display = 'none';
+			background.style.display = 'none';
+		}
+
+		// 复制链接到剪贴板
+		function copyToClipboard() {
+			const textarea = document.getElementById('pageLink');
+			textarea.select();
+			document.execCommand('copy');
+			alert('链接已复制到剪贴板！');
+		}
+
+		// 页面加载时调用函数
+		window.onload = () => {
+			replaceLinksIfNeeded(); // 检测并替换链接地址
+			loadRandomPage(); // 加载随机页面
+		};
+	</script>
+</head>
+<body>
+	<div id="content">
+		<h1>正在为你寻找色图...请稍后...</h1>
+		<br />
+		<a id="xunlei" href="https://xn--djr07sn3v.com">点我查看所有</a>
+	</div>
+
+	<!-- 悬浮收藏按钮 -->
+	<button id="favoriteButton" onclick="showFavoriteModal()">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Five-pointed_star.svg" alt="收藏" />
+	</button>
+
+	<!-- 收藏弹窗 -->
+	<div id="modalBackground" onclick="hideFavoriteModal()"></div>
+	<div id="favoriteModal">
+		<h2>当前页面链接：</h2>
+		<textarea id="pageLink" readonly></textarea>
+		<br />
+		<button onclick="copyToClipboard()">复制链接</button>
+		<p>复制页面链接收藏好（添加书签或发给好友）～</p>
+		<button onclick="hideFavoriteModal()">关闭</button>
+	</div>
+</body>
 </html>
