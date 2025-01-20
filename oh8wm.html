@@ -4141,77 +4141,56 @@ console.log(
 		</div>
 		<script>
 			document.title = '转发越多更新越快！';
-			// 检查当前域名
-			function () {
-			    const Domain = window.location.hostname;
-			
-			    // 如果当前域名是 xiaobeirepo.github.io，则不做任何操作
-			    if (Domain === 'xiaobeirepo.github.io') {
-			        return;
-			    }
-			
-			    // 如果当前域名是 repo2-320.pages.dev，则更新视频源链接
-			    if (Domain === 'repo2-320.pages.dev') {
-			        // 获取所有 video 标签内的 source 标签
-			        const videoSources = document.querySelectorAll('video source#videoSource');
-			
-			        // 遍历所有 source 标签并更新链接
-			        videoSources.forEach(source => {
-			            let oldSrc = source.getAttribute('src');
-			            if (oldSrc) {
-			                // 替换域名部分
-			                let newSrc = oldSrc.replace('https://xiaobeirepo.github.io/pan2', 'https://pan2-3f0.pages.dev');
-			                source.setAttribute('src', newSrc);
-			            }
-			        });
-			
-			        console.log('视频资源链接已更新');
-			    // 获取所有 video 标签内的 source 标签
-			        const videoSources = document.querySelectorAll('video source#videoSource');
-			    			
-			        // 遍历所有 source 标签并更新链接
-			        videoSources.forEach(source => {
-			            let oldSrc = source.getAttribute('src');
-			            if (oldSrc) {
-			                // 替换域名部分
-			                let newSrc = oldSrc.replace('https://xiaobeirepo.github.io/pan2', 'https://pan2-3f0.pages.dev');
-			                source.setAttribute('src', newSrc);
-			            }
-			        });
-			    			
-			        console.log('视频资源链接已更新');
-			    
-				}
-			
-			})();
-		</script>
-<script>
-    // 当前域名
-    const currentDomain = window.location.hostname;
 
-    // 目标域名
-    const targetDomain = "repo2-320.pages.dev";
+			    // 当 DOM 加载完成后执行
+			    document.addEventListener("DOMContentLoaded", function () {
+			        // 当前域名
+			        const currentDomain = window.location.hostname;
+			
+			        // 目标域名
+			        const targetDomain = "repo2-320.pages.dev";
+			
+			        // 如果当前域名是目标域名
+			        if (currentDomain === targetDomain) {
+			            console.log("当前域名是 repo2-320.pages.dev，开始更新资源链接...");
+			
+			            // 更新视频链接
+			            const videoSources = document.querySelectorAll('video source#videoSource');
+			            videoSources.forEach(source => {
+			                let oldSrc = source.getAttribute('src');
+			                if (oldSrc) {
+			                    // 替换域名部分
+			                    let newSrc = oldSrc.replace('https://xiaobeirepo.github.io/pan2', 'https://pan2-3f0.pages.dev');
+			                    source.setAttribute('src', newSrc);
+			                    console.log(`视频链接已更新: ${oldSrc} → ${newSrc}`);
+			                }
+			            });
+			
+			            // 更新图片链接
+			            document.querySelectorAll("script").forEach(script => {
+			                const scriptContent = script.innerHTML;
+			
+			                // 替换图片 URL，去掉多余的 /imgtest/
+			                const updatedContent = scriptContent.replace(
+			                    /https:\/\/xiaobeirepo\.github\.io\/imgtest\/(.*?)\.md/g,
+			                    "https://imgtest-wcb.pages.dev/$1.md"
+			                );
+			
+			                // 如果内容发生变化，更新 <script>
+			                if (scriptContent !== updatedContent) {
+			                    const newScript = document.createElement("script");
+			                    newScript.innerHTML = updatedContent;
+			                    script.parentNode.replaceChild(newScript, script);
+			                    console.log(`图片链接已更新: ${scriptContent} → ${updatedContent}`);
+			                }
+			            });
+			
+			            console.log("资源链接更新完成");
+			        } else {
+			            console.log(`当前域名为 ${currentDomain}，无需更新资源链接。`);
+			        }
+			    });
 
-    // 如果当前域名是目标域名
-    if (currentDomain === targetDomain) {
-        // 查找所有 <script> 标签，提取和更新图片 URL
-        document.querySelectorAll("script").forEach(script => {
-            const scriptContent = script.innerHTML;
-
-            // 替换图片 URL，去掉多余的 /imgtest/
-            const updatedContent = scriptContent.replace(
-                /https:\/\/xiaobeirepo\.github\.io\/imgtest\/(.*?)\.md/g,
-                "https://imgtest-wcb.pages.dev/$1.md"
-            );
-
-            // 如果内容发生变化，更新 <script>
-            if (scriptContent !== updatedContent) {
-                const newScript = document.createElement("script");
-                newScript.innerHTML = updatedContent;
-                script.parentNode.replaceChild(newScript, script);
-            }
-        });
-    }
 </script>
 
 		</div>
